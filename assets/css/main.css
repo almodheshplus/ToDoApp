@@ -1,0 +1,58 @@
+body {
+    background-color: #121212;
+    font-family: "Saira", sans-serif;
+    color: #E4E4E4;
+}
+.tasks {
+    border: 1px solid #f0f0f05d;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+::placeholder {
+  color: #E4E4E4!important;
+}
+::-ms-input-placeholder { /* Edge 12-18 */
+  color: #E4E4E4!important;
+}
+
+#taskInput {
+    background-color: #696969;
+    border: 0;
+    color: #E4E4E4;
+    font-family: "Exo 2", sans-serif;
+    transition: all 0.4s;
+}
+#taskInput:focus {
+    background-color: #747474;
+    box-shadow: none;
+}
+
+#addTaskBtn {
+    background-color: #655191;
+    color: #E4E4E4;
+    transition: all 0.4s;
+    border-radius:  30px;
+}
+#addTaskBtn:hover {
+    background-color: #7059a1;
+}
+
+.task {
+    padding: 15px;
+    background-color: #6d3dd6;
+    border-radius: 10px;
+    margin-top: 10px;
+    position: relative;
+    font-size: 19px;
+}
+.no-task {
+    background-color: #1d78cc;
+}
+.remove-task {
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.remove-task:hover {
+    color: #ffb3b3;
+}
