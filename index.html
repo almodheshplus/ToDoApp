@@ -1,9 +1,23 @@
+<!-- 
+    # Coded With 🧡 By Youssef Almodhesh ^_^
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
+
+    <!-- SEO -->
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+    <meta property="og:title" content="ToDo App">
+    <meta property="og:description" content="ToDo App">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ToDo App">
+    <!-- <meta property="og:url" content="" /> -->
+    <meta property="og:image" content="./assets/img/og.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -14,19 +28,34 @@
     
 <main>
     <div class="container">
+        <h2 class="text-center mt-4 fw-bold app-title">ToDo App</h2>
         <div class="row justify-content-center">
             <div class="col-md-9 my-4 tasks">
-                <div class="add-task">
-                    <input class="form-control form-control-lg" id="taskInput" type="text" placeholder="Write Your Task...">
-                    <div class="d-grid">
-                        <button type="button" id="addTaskBtn" class="btn btn-lg my-3"><i class="bi bi-plus-circle-fill"></i> Add Task</button>
+
+                <div class="status d-flex justify-content-between w-100">
+                    <div class="status-counter">
+                        <i class="bi bi-ui-checks"></i> Total: <span class="total">0</span> |
+                        <i class="bi bi-check-all"></i> Completed: <span class="completed">0</span> |
+                        <i class="bi bi-clock-history"></i> Pending: <span class="pending">0</span>
+                    </div>
+                    <div class="mode-change">
+                        <input type="checkbox" id="darkMode" style="display: none;">
+                        <label for="darkMode"><span class="ball"><i class="bi icon"></i></span></label>
                     </div>
                 </div>
 
-                <h3 class="display-6 text-center mt-3"><i class="bi bi-list-task"></i> Tasks</h3>
+                <div class="add-task my-3">
+                    <p class="text-danger d-none task-error"></p>
+                    <input class="form-control form-control-lg" id="taskInput" type="text" placeholder="Write Your Task...">
+                    <div class="d-grid">
+                        <button  disabled type="button" id="addTaskBtn" class="btn btn-primary btn-lg my-3"><i class="bi bi-plus-circle-fill"></i> Add Task</button>
+                    </div>
+                </div>
+
+                <h3 class="display-6 text-center"><i class="bi bi-list-task"></i> Tasks <button id="deleteTasks" class="btn btn-danger float-end d-none"><i class="bi bi-trash3-fill"></i> Delete All</button></h3>
 
                 <div id="tasks" class="mt-3">
-                    <div class="task no-task"><span class="task-text">No Tasks Yet.</span><span class="float-end"><i class="bi bi-emoji-frown-fill"></i></span></div>
+                    <div class="task no-task bg-primary"><span class="task-text">No Tasks Yet.</span><span class="float-end"><i class="bi bi-emoji-frown-fill"></i></span></div>
                     <div id="tasksContainer"></div>
                 </div>
             </div>

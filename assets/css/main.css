@@ -1,57 +1,133 @@
-body {
-    background-color: #121212;
-    font-family: "Saira", sans-serif;
-    color: #E4E4E4;
-}
-.tasks {
-    border: 1px solid #f0f0f05d;
-    padding: 15px;
-    border-radius: 10px;
+/* 
+    # Coded With 🧡 By Youssef Almodhesh ^_^
+*/
+
+* {
+    transition: all 0.4s!important;
 }
 
+:root {
+    --mode-bg: #121212;
+    --tasks-border: #f0f0f05d;
+    --mode-color: #E4E4E4;
+    --input-bg: #696969;
+    --input-fbg: rgb(116, 116, 116);
+    --second-color: #E4E4E4;
+}
+
+/* got from stackoverflow */
 ::placeholder {
-  color: #E4E4E4!important;
+  color: var(--mode-color)!important;
 }
 ::-ms-input-placeholder { /* Edge 12-18 */
-  color: #E4E4E4!important;
+  color: var(--mode-color)!important;
 }
 
-#taskInput {
-    background-color: #696969;
-    border: 0;
-    color: #E4E4E4;
-    font-family: "Exo 2", sans-serif;
-    transition: all 0.4s;
+.light {
+    --mode-bg: #eee;
+    --tasks-border: #1616165d;
+    --mode-color: #222222;
+    --input-bg: #d6d6d6;
+    --input-fbg: #cecece;
+    --second-color: #ececec;
 }
-#taskInput:focus {
-    background-color: #747474;
-    box-shadow: none;
+
+body {
+    background-color: var(--mode-bg);
+    font-family: "Saira", sans-serif;
+    color: var(--mode-color);
+}
+
+.mode-change label {
+    width: 60px;
+    height: 30px;
+    background-color: #193847;
+    border-radius: 25px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px #60606085;
+}
+.mode-change label .ball {
+    width: 20px;
+    height: 20px;
+    background-color: #8a8787;
+    border-radius: 50%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    color: #fff;
+    transition: all 0.5s;
+}
+.mode-change #darkMode:checked + label .ball {
+    margin-left: calc(100% - 20px);
+}
+.mode-change #darkMode:checked + label {
+    background-color: #dbd8ed;
+}
+.mode-change label .ball .icon:before {
+    content: "\f495";
+    font-size: 14px;
+}
+.mode-change #darkMode:checked + label .ball .icon:before {
+    content: "\f1d1";
+}
+
+.status-counter, .task-error, .app-title {
+    font-family: "Exo 2", sans-serif;
 }
 
 #addTaskBtn {
-    background-color: #655191;
-    color: #E4E4E4;
-    transition: all 0.4s;
     border-radius:  30px;
 }
-#addTaskBtn:hover {
-    background-color: #7059a1;
+#addTaskBtn:disabled {
+    opacity: 0.4;
+    filter: blur(0.5px);
+}
+#taskInput {
+    background-color: var(--input-bg);
+    border: 0;
+    color: var(--mode-color);
+    font-family: "Exo 2", sans-serif;
+}
+#taskInput:focus {
+    background-color: var(--input-fbg);
+    box-shadow: none;
 }
 
+.tasks {
+    border: 1px solid var(--tasks-border);
+    padding: 15px;
+    border-radius: 10px;
+}
+.checkTask {
+    display: none;
+}
+.checkTask + label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.checkTask + label i:before {
+    content: "\f28a";
+}
+.checkTask:checked + label i:before {
+    content: "\f270";
+}
+.checkTask:checked + label + .task-text {
+    text-decoration: line-through;
+}
 .task {
     padding: 15px;
-    background-color: #6d3dd6;
+    /* background-color: #6d3dd6; */
     border-radius: 10px;
     margin-top: 10px;
     position: relative;
     font-size: 19px;
-}
-.no-task {
-    background-color: #1d78cc;
+    color: var(--second-color);
 }
 .remove-task {
     cursor: pointer;
-    transition: all 0.4s;
 }
 .remove-task:hover {
     color: #ffb3b3;
