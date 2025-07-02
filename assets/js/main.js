@@ -56,9 +56,9 @@ function taskExists(task) {
 
 const generateColor = () => {
     // if r & g & b are equal to 255 then color would be white, so making it 210 will decrease white color appearing
-    let r = Math.random()*210,
-        g = Math.random()*210,
-        b = Math.random()*210;
+    let r = Math.ceil(Math.random()*210),
+        g = Math.ceil(Math.random()*210),
+        b = Math.ceil(Math.random()*210);
     return `rgb(${r}, ${g}, ${b})`;
 }
 
