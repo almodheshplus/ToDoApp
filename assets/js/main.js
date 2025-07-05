@@ -26,6 +26,12 @@ let taskCounterElements = {
 let errorMsg,
     i = 0;
 
+const updateTaskOrder = () => {
+    for (let i = 0; i < tasksContainer.children.length; i++) {
+        tasksContainer.children[i].querySelector("#taskOrder").innerHTML = (i+1)+": ";
+    }
+}
+
 // Dark Mode
 if (modeInput.checked) {
     body.classList.add("light");
@@ -43,6 +49,7 @@ function updateCounter() {
     taskCounterElements["total"].innerHTML = taskCounter["total"];
     taskCounterElements["completed"].innerHTML = taskCounter["completed"];
     taskCounterElements["pending"].innerHTML = taskCounter["pending"];
+    updateTaskOrder();
 }
 
 function taskExists(task) {
@@ -102,7 +109,7 @@ addTaskBtn.addEventListener("click", function () {
         e.id = "task"+i;
         e.classList.add('task');
         e.style.backgroundColor = generateColor();
-        e.innerHTML = `<input type="checkbox" class="checkTask" id="checkTask${i}" onchange="updateCounter()"><label for="checkTask${i}"><i class="bi"></i></label><span class="task-text">${task}</span><span class="remove-task float-end" onclick="removeTask('task${i}')"><i class="bi bi-x-circle"></i></span>`;
+        e.innerHTML = `<input type="checkbox" class="checkTask" id="checkTask${i}" onchange="updateCounter()"><label for="checkTask${i}"><i class="bi"></i></label><span class="task-text"><span id="taskOrder"></span>${task}</span><span class="remove-task float-end" onclick="removeTask('task${i}')"><i class="bi bi-x-circle"></i></span>`;
         tasksContainer.append(e);
         
         if (!noTask.classList.contains("d-none")) {

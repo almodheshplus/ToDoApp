@@ -132,3 +132,6 @@ body {
 .remove-task:hover {
     color: #ffb3b3;
 }
+#taskOrder {
+    font-weight: bold;
+}
